@@ -31,8 +31,16 @@ func NewRational(num, dem int) Rational {
 	}
 }
 
+func (r Rational) Inverse() Rational {
+	return NewRational(r.Dem, r.Num)
+}
+
 func Prod(r, s Rational) Rational {
 	newNum := r.Num * s.Num
 	newDem := r.Dem * s.Dem
 	return NewRational(newNum, newDem)
+}
+
+func Divide(r, s Rational) Rational {
+	return Prod(r, s.Inverse())
 }

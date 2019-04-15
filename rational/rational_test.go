@@ -30,3 +30,15 @@ func TestProd(t *testing.T) {
 		t.Errorf("result.Dem is expected 28, got=%d", result.Dem)
 	}
 }
+
+func TestDivide(t *testing.T) {
+	r := NewRational(3, 4)
+	s := NewRational(5, 7)
+	result := Divide(r, s)
+	if result.Num != 21 {
+		t.Errorf("result.Num is expected 21, got=%d", result.Num)
+	}
+	if result.Dem != 20 {
+		t.Errorf("result.Dem is expected 20, got=%d", result.Dem)
+	}
+}
