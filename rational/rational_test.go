@@ -19,6 +19,25 @@ func TestGenerateRational(t *testing.T) {
 	}
 }
 
+func TestSumSub(t *testing.T) {
+	r := NewRational(3, 4)
+	s := NewRational(5, 6)
+	result := Sum(r, s)
+	if result.Num != 19 {
+		t.Errorf("result.Num is expected 19, got=%d", result.Num)
+	}
+	if result.Dem != 12 {
+		t.Errorf("result.Dem is expected 12, got=%d", result.Dem)
+	}
+	result2 := Sub(r, s)
+	if result2.Num != -1 {
+		t.Errorf("result.Num is expected -1, got=%d", result2.Num)
+	}
+	if result2.Dem != 12 {
+		t.Errorf("result.Dem is expected 12, got=%d", result2.Dem)
+	}
+}
+
 func TestProd(t *testing.T) {
 	r := NewRational(3, 4)
 	s := NewRational(5, 7)

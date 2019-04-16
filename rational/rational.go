@@ -43,6 +43,17 @@ func (r Rational) Inverse() Rational {
 	return NewRational(r.Dem, r.Num)
 }
 
+func Sum(r, s Rational) Rational {
+	newDem := r.Dem * s.Dem
+	newNum := r.Num*s.Dem + s.Num*r.Dem
+	return NewRational(newNum, newDem)
+}
+
+func Sub(r, s Rational) Rational {
+	s.Num = -s.Num
+	return Sum(r, s)
+}
+
 func Prod(r, s Rational) Rational {
 	newNum := r.Num * s.Num
 	newDem := r.Dem * s.Dem
