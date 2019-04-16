@@ -23,12 +23,20 @@ func NewRational(num, dem int) Rational {
 		dem = -dem
 		num = -num
 	}
-	absNum := int(math.Abs(float64(num)))
-	g := gcd(absNum, dem)
-	return Rational{
-		Num: num / g,
-		Dem: dem / g,
+
+	r := Rational{
+		Num: num,
+		Dem: dem,
 	}
+	r.normalize()
+	return r
+}
+
+func (r *Rational) normalize() {
+	absNum := int(math.Abs(float64(r.Num)))
+	g := gcd(absNum, r.Dem)
+	r.Num = r.Num / g
+	r.Dem = r.Dem / g
 }
 
 func (r Rational) Inverse() Rational {
