@@ -21,7 +21,7 @@ func TestCalc(t *testing.T) {
 	}
 }
 
-func TestCalcMidleExpression(t *testing.T) {
+func TestCalcMiddleExpression(t *testing.T) {
 	inputTokens := []parser.Token{
 		parser.Token{TokenLiteral: "3", TokenType: parser.Numeric},
 		parser.Token{TokenLiteral: "4", TokenType: parser.Numeric},
