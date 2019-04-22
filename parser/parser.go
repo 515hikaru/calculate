@@ -6,46 +6,46 @@ import (
 
 // token types
 const (
-	operator = "operator"
-	numeric  = "numeric"
+	Operator = "operator"
+	Numeric  = "numeric"
 )
 
 // operators
 const (
-	plus   = "+"
-	minus  = "-"
-	prod   = "*"
-	divide = "/"
+	Plus   = "+"
+	Minus  = "-"
+	Prod   = "*"
+	Divide = "/"
 )
 
 // ignore token
 const (
-	space  = " "
-	empty  = ""
+	space = " "
+	empty = ""
 )
 
-type token struct {
-	tokenLiteral string
-	tokenType    string
+type Token struct {
+	TokenLiteral string
+	TokenType    string
 }
 
-func Parse(s string) []token {
+func Parse(s string) []Token {
 	split := strings.Split(s, space)
-	tks := make([]token, 0)
+	tks := make([]Token, 0)
 
 	for _, c := range split {
 		if c == empty {
 			continue
 		}
 
-		tk := token{}
-		tk.tokenLiteral = c
+		tk := Token{}
+		tk.TokenLiteral = c
 
 		switch c {
-		case plus, minus, prod, divide:
-			tk.tokenType = operator
+		case Plus, Minus, Prod, Divide:
+			tk.TokenType = Operator
 		default:
-			tk.tokenType = numeric
+			tk.TokenType = Numeric
 		}
 
 		tks = append(tks, tk)
