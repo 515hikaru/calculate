@@ -12,7 +12,11 @@ func NewStack() Stack {
 }
 
 func (s *Stack) Push(x rational.Rational) {
-	s.items = append(s.items, x)
+	if len(s.items) == s.idx {
+		s.items = append(s.items, x)
+	} else {
+		s.items[s.idx] = x
+	}
 	s.idx += 1
 }
 
