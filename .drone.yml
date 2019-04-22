@@ -2,4 +2,5 @@ pipeline:
   test:
     image: golang:1.12.4
     commands:
+      - go get -u github.com/515hikaru/calculate
       - go test -v ./...
