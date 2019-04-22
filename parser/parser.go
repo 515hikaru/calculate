@@ -16,6 +16,10 @@ const (
 	minus  = "-"
 	prod   = "*"
 	divide = "/"
+)
+
+// ignore token
+const (
 	space  = " "
 	empty  = ""
 )
@@ -26,7 +30,7 @@ type token struct {
 }
 
 func Parse(s string) []token {
-	split := strings.Split(s, " ")
+	split := strings.Split(s, space)
 	tks := make([]token, 0)
 
 	for _, c := range split {
