@@ -18,7 +18,6 @@ func main() {
 		panic("cannot load from stdinput")
 	}
 	tokens := parser.Parse(s)
-	fmt.Printf("%v\n", tokens)
 	calc := calc.Calc(tokens)
 	fmt.Printf("%v\n", calc)
 }
