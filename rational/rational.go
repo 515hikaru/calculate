@@ -1,6 +1,9 @@
 package rational
 
-import "math"
+import (
+	"fmt"
+	"math"
+)
 
 type Rational struct {
 	Num int
@@ -62,4 +65,11 @@ func Prod(r, s Rational) Rational {
 
 func Divide(r, s Rational) Rational {
 	return Prod(r, s.Inverse())
+}
+
+func (r Rational) String() string {
+	if r.Dem == 1 {
+		return fmt.Sprintf("%d\n", r.Num)
+	}
+	return fmt.Sprintf("%d/%d\n", r.Num, r.Dem)
 }
