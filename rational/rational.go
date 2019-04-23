@@ -69,7 +69,7 @@ func Divide(r, s Rational) Rational {
 
 func (r Rational) String() string {
 	if r.Dem == 1 {
-		return fmt.Sprintf("%d\n", r.Num)
+		return fmt.Sprintf("%d", r.Num)
 	}
-	return fmt.Sprintf("%d/%d\n", r.Num, r.Dem)
+	return fmt.Sprintf("%d/%d", r.Num, r.Dem)
 }
